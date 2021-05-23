@@ -1,6 +1,21 @@
-# Getting Started with Create React App
+# Store Front
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application is online shopping website where you can browse products based on their categories.
+
+<hr>
+
+### URLs
+
+[Pull Request](https://github.com/BasharNofal/store-front/pull/5)\
+[Netlify](https://bn-store-front.netlify.app/)
+
+<hr>
+
+### UML Diagram
+
+![UML](./assets/store-front-ph1.png)
+
+<hr>
 
 ## Available Scripts
 

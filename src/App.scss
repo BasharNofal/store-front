@@ -1,0 +1,39 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#tabs{
+    // position: fixed;
+    margin-bottom: 1%;
+}
+
+#productListSection{
+    margin: 2% auto;
+    width: 70%;
+}
+
+#productList{
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.listCard{
+    margin: 2% auto;
+    width: 18rem;
+    height: 20rem;
+}
+
+#categoryTitle{
+    width: 70%;
+    margin: 2% auto;
+    text-align: center;
+}
