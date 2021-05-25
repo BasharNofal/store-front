@@ -15,42 +15,37 @@ const initialState = {
 };
 
 const categoriesList = (state, action) => {
-    console.log('categories store', state);
 
-    state = initialState;
-    let activeCategory,
-        categories = [];
+  state = initialState;
+  let activeCategory,
+      categories = [];
   const { type, payload } = action;
   switch (type) {
-    case "FOOD":
+    case "SELECT-CATEGORY":
       activeCategory = payload;
       categories = state.categories.filter(category => {
         return category.name === payload;
       });
       return { categories, activeCategory };
-    case "ELECTRONICS":
-      activeCategory = payload;
+    
+    case "ADD-ITEM":
+      activeCategory = payload.category;
       categories = state.categories.filter(category => {
-        return category.name === payload;
+        return category.name === payload.category;
       });
       return { categories, activeCategory };
+
+    case "DELETE-ITEM":
+      activeCategory = payload.category;
+      categories = state.categories.filter(category => {
+        return category.name === payload.category;
+      });
+      return { categories, activeCategory };
+
     default:
       return null;
+
   }
 };
 
 export default categoriesList;
-
-// export const food = (category) => {
-//   return {
-//     type: "FOOD",
-//     payload: category,
-//   };
-// };
-
-// export const electronics = (category) => {
-//   return {
-//     type: "ELECTRONICS",
-//     payload: category,
-//   };
-// };

@@ -1,24 +1,27 @@
-import { connect } from "react-redux";
-import { food, electronics } from "../store/action";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCategory } from "../store/action";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 const Category = (props) => {
     let value;
-  console.log("props.categories", props?.categories?.categories[0]);
+
+    const dispatch = useDispatch();
+    const state = useSelector(state => {
+      return {categories: state.categories};
+    });
+
     function handleChange() {
-      
-    if (props?.categories?.categories[0].name === "FOOD") {
+      if (state?.categories?.activeCategory === "FOOD") {
         value = 0
-    }
-    if (props?.categories?.categories[0].name === "ELECTRONICS") {
+      }
+      if (state?.categories?.activeCategory === "ELECTRONICS") {
         value = 1;
+      }
     }
-}
-console.log({value})
+
   return (
       <section>
-      <div id="tabs">
         <Tabs
           onChange={handleChange()}
           value={value}
@@ -26,21 +29,16 @@ console.log({value})
           textColor="primary"
           
         >
-          <Tab onClick={() => {props.food('FOOD')}} label="FOOD" />
-          <Tab onClick={() => {props.electronics('ELECTRONICS')}} label="ELECTRONICS" />
+          <Tab onClick={() => {dispatch(selectCategory('FOOD'))}} label="FOOD" />
+          <Tab onClick={() => {dispatch(selectCategory('ELECTRONICS'))}} label="ELECTRONICS" />
         </Tabs>
-      </div>
       <div id="categoryTitle" >
-        <h3>{props?.categories?.categories[0].displayName}</h3>
-        <p>{props?.categories?.categories[0].description}</p>
+        <h3>{state?.categories?.categories[0].displayName}</h3>
+        <p>{state?.categories?.categories[0].description}</p>
       </div>
     </section>
   );
 };
 
-const mapStateToProps = (state) => {
-  return { categories: state.categories };
-};
 
-const mapDispatchToProps = { food, electronics };
-export default connect(mapStateToProps, mapDispatchToProps)(Category);
+export default Category;

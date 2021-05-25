@@ -1,13 +1,20 @@
-export const electronics = (category) => {
+export const selectCategory = (category) => {
   return {
-    type: "ELECTRONICS",
+    type: "SELECT-CATEGORY",
     payload: category,
   };
 };
 
-export const food = (category) => {
+export const addItem = (item) => {
   return {
-    type: "FOOD",
-    payload: category,
-  };
-};
+    type: "ADD-ITEM",
+    payload: item
+  }
+}
+
+export const deleteItem = (item) => {
+  return {
+    type: "DELETE-ITEM",
+    payload: item
+  }
+}
