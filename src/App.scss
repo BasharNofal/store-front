@@ -3,20 +3,20 @@
 *:after {
   box-sizing: border-box;
 }
+
 html,
-body {
-  height: 100%;
+body, #root {
+//   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-#tabs{
-    // position: fixed;
-    margin-bottom: 1%;
+.MuiToolbar-root{
+    justify-content: space-between;
 }
 
 #productListSection{
-    margin: 2% auto;
+    margin: 4% auto;
     width: 70%;
 }
 
@@ -27,7 +27,7 @@ body {
 }
 
 .listCard{
-    margin: 2% auto;
+    margin: 3% auto;
     width: 18rem;
     height: 20rem;
 }
@@ -36,4 +36,37 @@ body {
     width: 70%;
     margin: 2% auto;
     text-align: center;
+}
+
+#cartItems{
+    position: fixed;
+    top: 4.5em;
+    right: 0;
+    width: 17%;
+    margin-right: 0.5%;
+
+    ul{
+
+        li{
+            display: grid;
+            grid-template-columns: 90% 10%;
+            align-items: center;
+            // padding: auto 5%;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 0px 2px silver;
+            list-style: none;
+            p{
+                padding: 2%;
+                display: inline;
+            }
+            span{
+                color: rgb(27, 27, 202);
+                &:hover{
+                    cursor: pointer;
+                    color: rgb(209, 21, 21);
+                }
+            }
+        }
+    }
+
 }

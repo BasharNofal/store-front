@@ -1,4 +1,5 @@
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '../store/action';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
@@ -6,14 +7,23 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { electronics, food } from '../store/action';
 
 const Products = (props) => {
+
+  const state = useSelector(state => {
+    return {
+      products: state.products, categories: state.categories
+    };
+  });
+
+  const dispatch = useDispatch();
+
     return (        
         <section id="productListSection">
             <ul id='productList'>
                 {
-                    props?.products?.arrOfProducts.map(product => {
+                    state?.products?.map(product => {
+                      if(product?.category === state.categories.activeCategory){
                         return <li className="listCard" style={{listStyle:'none'}} key={product?.name}><Card >
                         <CardActionArea>
                           <CardMedia
@@ -36,11 +46,12 @@ const Products = (props) => {
                           <Button size="small" color="primary">
                             View Details
                           </Button>
-                          <Button size="small" color="primary">
+                          <Button size="small" color="primary" onClick={(() => {dispatch(addItem(product))})}>
                             Add TO Cart
                           </Button>
                         </CardActions>
                       </Card></li>
+                      }
                     })
                 }
             </ul>
@@ -48,10 +59,4 @@ const Products = (props) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return { products: state.products };
-};
-
-const mapDispatchToProps = { electronics, food };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default Products;

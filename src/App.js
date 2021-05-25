@@ -2,6 +2,7 @@ import './App.scss';
 import Categories from './components/categories';
 import Products from './components/products';
 import Header from './components/header';
+import Cart from './components/cart';
 
 function App() {
   return (
@@ -9,9 +10,10 @@ function App() {
     <header>
       <Header/>
     </header>
-    <div style={{marginTop:"4rem"}} >
+    <div  >
       <Categories/>
-      <Products/>
+      <Cart/>
+      <Products />
     </div>
     </>
   );
