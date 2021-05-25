@@ -6,7 +6,7 @@ This application is online shopping website where you can browse products based 
 
 ### URLs
 
-[Pull Request](https://github.com/BasharNofal/store-front/pull/6)\
+[Pull Request](https://github.com/BasharNofal/store-front/pull/3)\
 [Netlify](https://bn-store-front.netlify.app/)
 
 <hr>

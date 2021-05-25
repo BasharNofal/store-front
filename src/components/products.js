@@ -21,9 +21,9 @@ const Products = (props) => {
     return (        
         <section id="productListSection">
             <ul id='productList'>
-                {
-                    state?.products?.map(product => {
-                      if(product?.category === state.categories.activeCategory){
+                {   
+                    state?.products?.filter(product => product.category === state.categories.activeCategory)
+                    .map(product => {
                         return <li className="listCard" style={{listStyle:'none'}} key={product?.name}><Card >
                         <CardActionArea>
                           <CardMedia
@@ -51,7 +51,6 @@ const Products = (props) => {
                           </Button>
                         </CardActions>
                       </Card></li>
-                      }
                     })
                 }
             </ul>
