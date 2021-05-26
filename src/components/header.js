@@ -16,7 +16,7 @@ const Header = (props) => {
                     <h1>Our Store</h1>
                 </div>
                 <div id='cartCount'>
-                    <h3>Cart({state?.cartList?.cart?.length || 0})</h3>
+                    <h3>Cart({state?.cartList?.length || 0})</h3>
                 </div>                
             </Toolbar>
         </AppBar>

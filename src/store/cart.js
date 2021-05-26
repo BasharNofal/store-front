@@ -1,21 +1,20 @@
 import { v4 as uuidV4 } from 'uuid';
 
-const initialState = {
-    cart:[],
-};
+const initialState = [];
 
-const cartList = (state, action) => {
-    state = initialState;
+const cartList = (state = initialState, action) => {
     const {type, payload} = action;
+    let arrOfCartList = [];
     switch(type) {
         case "ADD-ITEM":
             let item = {...payload, id:uuidV4()}
-            state.cart.push(item);
-            return {...state};
+            arrOfCartList = state;
+            arrOfCartList.push(item);
+            return arrOfCartList;
 
         case "DELETE-ITEM":
-            state.cart = state.cart.filter(item => item.id !== payload.id );
-            return {...state};
+            arrOfCartList = state.filter(item => item.id !== payload.id );
+            return arrOfCartList;
 
         default:
             return state;
