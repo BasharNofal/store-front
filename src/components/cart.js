@@ -3,7 +3,6 @@ import { deleteItem } from "../store/action";
 
 const Cart = (props) => {
   const state = useSelector((state) => {
-    // console.log(state)
     return { cart: state.cartList };
   });
 

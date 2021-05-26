@@ -11,18 +11,20 @@ import Button from '@material-ui/core/Button';
 const Products = (props) => {
 
   const state = useSelector(state => {
+
     return {
-      products: state.products, categories: state.categories
+      products: state.arrOfProducts, categories: state.categories
     };
   });
 
   const dispatch = useDispatch();
+  console.log(state)
 
     return (        
         <section id="productListSection">
             <ul id='productList'>
                 {   
-                    state?.products?.filter(product => product.category === state.categories.activeCategory)
+                    state?.products?.filter(product => product?.category === state?.categories?.activeCategory && product.count > 0 )
                     .map(product => {
                         return <li className="listCard" style={{listStyle:'none'}} key={product?.name}><Card >
                         <CardActionArea>
