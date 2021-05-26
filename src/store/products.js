@@ -38,7 +38,6 @@ const initialState = [
 ];
 
 const productsList = (state = initialState, action) => {
-	// state = initialState;
 	const { type, payload } = action;
 	switch (type) {
 		case "ADD-ITEM":

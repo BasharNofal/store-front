@@ -6,14 +6,14 @@ This application is online shopping website where you can browse products based 
 
 ### URLs
 
-[Pull Request](https://github.com/BasharNofal/store-front/pull/4)\
+[Pull Request](https://github.com/BasharNofal/store-front/pull/5)\
 [Netlify](https://bn-store-front.netlify.app/)
 
 <hr>
 
 ### UML Diagram
 
-![UML](./assets/store-front-ph1.png)
+![UML](./assets/store-front-ph2.png)
 
 <hr>
 
