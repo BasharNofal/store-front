@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { addRemoteItem } from "../store/actionWithThunk"
-import { getProducts } from "../store/actionWithThunk";
+import { addRemoteItem } from "../store/action"
+import { getProducts } from "../store/action";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";

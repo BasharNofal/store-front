@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { deleteRemoteItem } from "../store/actionWithThunk";
+import { deleteRemoteItem } from "../store/action";
 
 const api = 'https://api-js401.herokuapp.com/api/v1/products';
 const Cart = (props) => {

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategory } from "../store/actionWithThunk";
+import { selectCategory } from "../store/action";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
