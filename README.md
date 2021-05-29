@@ -1,19 +1,19 @@
 # Store Front
 
-This application is online shopping website where you can browse products based on their categories. Also you can add and delete items from your cart.
+This application is an online shopping website where you can browse products (products from an API) based on their categories. Also you can add and delete items from your cart.
 
 <hr>
 
 ### URLs
 
-[Pull Request](https://github.com/BasharNofal/store-front/pull/5)\
+[Pull Request](https://github.com/BasharNofal/store-front/pull/6)\
 [Netlify](https://bn-store-front.netlify.app/)
 
 <hr>
 
 ### UML Diagram
 
-![UML](./assets/store-front-ph2.png)
+![UML](./assets/store-front-ph3.png)
 
 <hr>
 

@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { addItem } from "../store/action";
+import { addRemoteItem } from "../store/action"
+import { getProducts } from "../store/action";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -8,16 +10,25 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
+const api = 'https://api-js401.herokuapp.com/api/v1/products';
 const Products = (props) => {
-	const state = useSelector((state) => {
-		return {
-			products: state.arrOfProducts,
+
+    const state = useSelector((state) => {
+        return {
+            products: state.arrOfProducts,
 			categories: state.categories,
 		};
 	});
-
+    
 	const dispatch = useDispatch();
-	console.log(state);
+
+    const getData = () => {
+        dispatch(getProducts(api));
+    }
+    useEffect(() => {
+        getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[]);
 
 	return (
 		<section id="productListSection">
@@ -27,7 +38,7 @@ const Products = (props) => {
 						(product) =>
 							product?.category ===
 								state?.categories?.activeCategory &&
-							product.count > 0
+							product.inStock > 0
 					)
 					.map((product) => {
 						return (
@@ -70,7 +81,7 @@ const Products = (props) => {
 											size="small"
 											color="primary"
 											onClick={() => {
-												dispatch(addItem(product));
+												dispatch(addRemoteItem(product,`${api}/${product._id}`));
 											}}
 										>
 											Add TO Cart
