@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectCategory } from "../store/action";
+import { selectCategory } from "../store/actionWithThunk";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
@@ -12,10 +12,10 @@ const Category = (props) => {
     });
 
     function handleChange() {
-      if (state?.categories?.activeCategory === "FOOD") {
+      if (state?.categories?.activeCategory === "food") {
         value = 0
       }
-      if (state?.categories?.activeCategory === "ELECTRONICS") {
+      if (state?.categories?.activeCategory === "electronics") {
         value = 1;
       }
     }
@@ -29,8 +29,8 @@ const Category = (props) => {
           textColor="primary"
           
         >
-          <Tab onClick={() => {dispatch(selectCategory('FOOD'))}} label="FOOD" />
-          <Tab onClick={() => {dispatch(selectCategory('ELECTRONICS'))}} label="ELECTRONICS" />
+          <Tab onClick={() => {dispatch(selectCategory('food'))}} label="FOOD" />
+          <Tab onClick={() => {dispatch(selectCategory('electronics'))}} label="ELECTRONICS" />
         </Tabs>
       <div id="categoryTitle" >
         <h3>{state?.categories?.categories[0].displayName}</h3>

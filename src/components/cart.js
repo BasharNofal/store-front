@@ -1,25 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItem } from "../store/action";
+import { deleteRemoteItem } from "../store/actionWithThunk";
 
+const api = 'https://api-js401.herokuapp.com/api/v1/products';
 const Cart = (props) => {
   const state = useSelector((state) => {
-    console.log(state.cartList)
     return { cart: state.cartList };
   });
 
   const dispatch = useDispatch();
-  console.log( 'state.cart',state.cart );
-  console.log(state)
   return (
     <div id="cartItems">
       <ul>
         {state?.cart.map((item) => {
           return (
             <li
-              key={item.id}
+              key={item.key}
             >
               <p>{item.name}</p>
-              <span onClick={() => dispatch(deleteItem(item))}>X</span>
+              <span onClick={() => dispatch(deleteRemoteItem(item,`${api}/${item._id}`))}>X</span>
             </li>
           );
         })}

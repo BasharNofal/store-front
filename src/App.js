@@ -1,6 +1,6 @@
 import './App.scss';
 import Categories from './components/categories';
-import Products from './components/products';
+import Products from './components/productsWithThunk';
 import Header from './components/header';
 import Cart from './components/cart';
 

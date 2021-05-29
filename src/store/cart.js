@@ -7,13 +7,14 @@ const cartList = (state = initialState, action) => {
     let arrOfCartList = [];
     switch(type) {
         case "ADD-ITEM":
-            let item = {...payload, id:uuidV4()}
+            let item = {...payload.result, key: uuidV4()}
             arrOfCartList = state;
             arrOfCartList.push(item);
             return arrOfCartList;
 
         case "DELETE-ITEM":
-            arrOfCartList = state.filter(item => item.id !== payload.id );
+            // console.log(payload);
+            arrOfCartList = state.filter(item => item.key !== payload.item.key );
             return arrOfCartList;
 
         default:
